@@ -1,9 +1,11 @@
 <?php
 namespace App\Core;
+use App\Controllers\Front\HomeController;
 
 class Router {
     private array $routes = [];
 
+    // pour ajouter une route au systeme
     public function add(string $method, string $path, callable|array $action): void {
         $this->routes[] = [
             'method' => strtoupper($method),
