@@ -13,7 +13,7 @@ class Router {
             'action' => $action
         ];
     }
-
+    // pour les url dynamiques
     public function dispatch(string $requestUri, string $requestMethod): void {
         foreach ($this->routes as $route) {
             if ($route['method'] === strtoupper($requestMethod) && $route['path'] === $requestUri) {
