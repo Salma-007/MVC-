@@ -25,8 +25,10 @@ class Database {
                 $username = $_ENV['DB_USER'];
                 $password = $_ENV['DB_PASS'];
                 $driver = $_ENV['DB_DRIVER'];
+                $port = $_ENV['DB_PORT'];
+                
 
-                $dsn = "$driver:host=$host;dbname=$dbname";
+                $dsn = "$driver:host=$host;dbname=$dbname;port={$port}";
 
                 // Création de la connexion PDO
                 self::$instance = new PDO($dsn, $username, $password, [
