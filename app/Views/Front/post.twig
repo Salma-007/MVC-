@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Posts</title>
+    <title>Post Details</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -60,20 +60,11 @@
 
         .post p {
             color: #7f8c8d;
-            font-size: 1em;
+            font-size: 1.1em;
             line-height: 1.6;
         }
 
-        .post:nth-child(odd) {
-            background-color: #ecf0f1;
-        }
-
-        .post:hover {
-            background-color: #f1f1f1;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .view-post-btn {
+        .back-btn {
             background-color: #3498db;
             color: white;
             border: none;
@@ -86,14 +77,8 @@
             text-decoration: none;
         }
 
-        .view-post-btn:hover {
+        .back-btn:hover {
             background-color: #2980b9;
-        }
-
-        p.no-posts {
-            text-align: center;
-            font-size: 1.2em;
-            color: #e74c3c;
         }
 
         @media (max-width: 768px) {
@@ -112,18 +97,13 @@
         {% endif %}
     </header>
 
-    <h1>All Posts:</h1>
-    </br>
+    <h1>Post Details</h1>
 
-    {% for post in posts %}
     <div class="post">
         <h2>{{ post.nom }}</h2>
         <p>{{ post.contenu }}</p>
-        <a href="/post/{{ post.id }}" class="view-post-btn">View Post</a>
+        <a href="/posts" class="back-btn">Back to All Posts</a>
     </div>
-    {% else %}
-    <p class="no-posts">No posts available.</p>
-    {% endfor %}
 
 </body>
 </html>

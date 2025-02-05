@@ -69,9 +69,10 @@ class User{
         $stmt->execute();
 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
+        var_dump($user);
         if ($user && password_verify($password, $user['password'])) {
-            session_start();
+            
+            Session::start();
             Session::set('user_id',$user['id']);
             Session::set('user_name',$user['nome']);
             return true;

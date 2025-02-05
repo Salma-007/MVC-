@@ -13,7 +13,7 @@ class HomeController extends Controller{
     }
 
     public function index() {
-        echo "Stop fix !";
+        echo "the router is working, tape login in the url to login !";
     }
 
     public function loginpage(){

@@ -16,4 +16,9 @@ class PostController extends Controller{
         $this->render('posts',['posts'=>$allPosts]);
     }
 
+    public function post(){
+        $postSingle =$this->post->getPostById($_GET['id']);
+        $this->render('post',['post'=>$postSingle]);
+    }
+
 }

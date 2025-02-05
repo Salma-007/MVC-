@@ -6,6 +6,7 @@ use App\Core\View;
 use App\config\Database;
 use App\Core\Controller;
 use App\Models\User;
+use App\Services\Session;
 
 class AuthController extends Controller{
     private $user;
@@ -44,7 +45,7 @@ class AuthController extends Controller{
     // sign in
     public function signInUser() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $email = trim($_POST['email']);
+            $email = $_POST['email'];
             $password = $_POST['password'];
 
             if (empty($email) || empty($password)) {
@@ -62,6 +63,12 @@ class AuthController extends Controller{
         } else {
             $this->render('login', ['error' => 'Enter inputs']);
         }
+    }
+
+    // loging out
+    public function logingout(){
+        Session::destroy();
+        header('Location: /login');
     }
     
 
