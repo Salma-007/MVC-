@@ -16,5 +16,21 @@ class BaseModel{
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
+     // methode d'insertion 
+     public function insertRecord($table, $data) {
+        
+        $columns = implode(',', array_keys($data));
+        $placeholders = implode(',', array_fill(0, count($data), '?'));
+
+        $sql = "INSERT INTO $table ($columns) VALUES ($placeholders)";
+
+        $stmt = $this->conn->prepare($sql);
+
+        if (!$stmt) {
+            die("Error in prepared statement: " . print_r($conn->errorInfo(), true));
+        }
+        $result = $stmt->execute(array_values($data));
+        return $this->conn->lastInsertId();
+    }
 }
 

@@ -1,5 +1,5 @@
 <?php
-namespace App\Core;
+namespace App\Services;
 
 class Session {
     public static function start() {

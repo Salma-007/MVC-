@@ -4,10 +4,24 @@ namespace App\Controllers\Front;
 
 use App\Core\View;
 use App\config\Database;
+use App\Core\Controller;
 
-class HomeController {
+class HomeController extends Controller{
+
+    public function __construct(){
+        parent::__construct();
+    }
+
     public function index() {
         echo "Stop fix !";
+    }
+
+    public function loginpage(){
+        $this->render('login');
+    }
+
+    public function registerpage(){
+        $this->render('register');
     }
 
     public function checkDatabase() {
