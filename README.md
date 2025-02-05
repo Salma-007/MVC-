@@ -29,14 +29,32 @@ L'architecture MVC proposée inclut les fonctionnalités suivantes :
 
 ---
 
-## Structure du Projet
 
-La structure des fichiers du projet est organisée comme suit :
+### Description des Dossiers et Fichiers
 
-/projet-mvc-php │── public/ # Dossier public (accessible via le navigateur) │ ├── index.php # Point d'entrée de l'application │ ├── .htaccess # Réécriture d'URL et sécurité │ ├── assets/ # Fichiers CSS, JS, images │ │── app/ # Code de l'application │ ├── controllers/ # Contrôleurs (Logique métier) │ │ ├── front/ # Contrôleurs Front Office │ │ │ ├── HomeController.php │ │ │ ├── ArticleController.php │ │ ├── back/ # Contrôleurs Back Office │ │ │ ├── DashboardController.php │ │ │ ├── UserController.php │ ├── models/ # Modèles (Gestion de la base de données) │ │ ├── User.php │ │ ├── Article.php │ ├── views/ # Fichiers templates pour les vues │ │ ├── front/ # Vues Front Office │ │ │ ├── home.twig │ │ │ ├── article.twig │ │ ├── back/ # Vues Back Office │ │ │ ├── dashboard.twig │ │ │ ├── users.twig │ ├── core/ # Classes principales de l'application │ │ ├── Router.php # Gestion des routes │ │ ├── Controller.php # Classe parent pour les contrôleurs │ │ ├── Model.php # Classe parent pour les modèles │ │ ├── View.php # Gestion des templates Twig │ │ ├── Database.php # Connexion PostgreSQL via PDO │ │ ├── Auth.php # Gestion des sessions et authentification │ │ ├── Validator.php # Validation des données │ │ ├── Security.php # Sécurisation contre XSS, CSRF, SQL Injection │ │ ├── Session.php # Gestion avancée des sessions │ ├── config/ # Configuration de l'application │ │ ├── config.php # Configuration de la base de données │ │ ├── routes.php # Définition des routes │── logs/ # Logs d'erreurs et d’accès │── vendor/ # Dépendances (si usage de Composer) │── .env # Variables d’environnement │── composer.json # Gestionnaire de dépendances PHP │── .gitignore # Fichiers à ignorer par Git
+- **public/** : Ce dossier contient tous les fichiers accessibles publiquement via le navigateur, y compris le point d'entrée principal `index.php`. Il comprend aussi le fichier `.htaccess` pour la réécriture d'URL et la gestion de la sécurité.
+  
+- **app/** : Le cœur de l'application contenant la logique métier.
+  - **controllers/** : Contient les contrôleurs, organisés par Front Office et Back Office. Les contrôleurs gèrent les requêtes des utilisateurs et appellent les modèles appropriés pour interagir avec les données.
+  - **models/** : Contient les modèles, qui gèrent la logique d'accès aux données (par exemple, l'interaction avec la base de données PostgreSQL).
+  - **views/** : Contient les fichiers Twig utilisés pour afficher les données de manière claire et structurée.
+  - **core/** : Contient les classes principales pour la gestion des fonctionnalités de base du projet (routage, gestion des sessions, sécurité, etc.).
+  - **config/** : Contient les fichiers de configuration de l'application, comme la configuration de la base de données et les définitions des routes.
 
+- **logs/** : Dossier où les logs d’erreurs et d’accès sont enregistrés pour le débogage et la gestion des incidents.
+  
+- **vendor/** : Ce dossier contient toutes les dépendances gérées par Composer.
+
+- **.env** : Fichier contenant les variables d'environnement pour des configurations sensibles (par exemple, les identifiants de base de données).
+
+- **composer.json** : Fichier de configuration de Composer qui gère les dépendances PHP du projet.
+
+- **.gitignore** : Liste les fichiers et répertoires qui ne doivent pas être suivis par Git, comme les fichiers temporaires et les configurations locales.
 
 ---
+
+Cette architecture modulaire permet une grande flexibilité et une maintenance facile à long terme. Elle sépare clairement les différentes parties du projet (logique métier, gestion de la base de données, gestion de l'affichage), ce qui simplifie les évolutions futures et l'intégration de nouvelles fonctionnalités.
+
 
 ## Meilleures Pratiques et Points Clés
 
