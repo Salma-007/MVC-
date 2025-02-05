@@ -18,6 +18,7 @@ $router->add('GET', '/', [HomeController::class, 'index']);
 $router->add('GET', '/test', [HomeController::class, 'checkDatabase']); 
 $router->add('GET', '/posts', [PostController::class, 'posts']); 
 $router->add('GET', '/login', [HomeController::class, 'loginpage']);
+$router->add('POST', '/loginTo', [AuthController::class, 'signInUser']);
 $router->add('GET', '/register', [HomeController::class, 'registerpage']);
 $router->add('POST', '/registerUser', [AuthController::class, 'registerUser']);
 
